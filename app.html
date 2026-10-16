@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scaffold Math</title>
+<style>
+  :root { --accent: #8a6d2e; --warn: #a83232; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 32px 16px 64px; background: #faf9f5; color: #2a2822;
+         font-family: Georgia, 'Times New Roman', serif; }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { color: var(--accent); font-size: 2.2rem; margin: 0 0 4px; }
+  .tag { font-style: italic; color: var(--accent); margin: 0 0 28px; }
+  .boundary { border-left: 4px solid var(--warn); background: #fdf1f1; padding: 16px 20px;
+              border-radius: 8px; margin: 0 0 28px; }
+  .boundary h2 { color: var(--warn); font-size: 1.1rem; margin: 0 0 8px; }
+  .boundary p { margin: 0; line-height: 1.5; }
+  .card { background: #fff; border: 1px solid #e5e2d6; border-left: 4px solid var(--accent);
+          border-radius: 8px; padding: 20px 24px; margin: 0 0 24px; }
+  .card h2 { margin: 0 0 14px; font-size: 1.25rem; }
+  label { display: block; font-size: 0.95rem; margin: 10px 0 4px; }
+  input { width: 100%; max-width: 220px; padding: 8px 10px; font-size: 1rem;
+          border: 1px solid #cfcaba; border-radius: 6px; background: #f4f2ec; }
+  .out { margin-top: 16px; font-size: 1.05rem; font-weight: bold; color: var(--accent);
+         line-height: 1.5; }
+  .out.err { color: var(--warn); }
+  footer { margin-top: 32px; font-size: 0.85rem; color: #8a8672; line-height: 1.5; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Scaffold Math</h1>
+  <p class="tag">Reach truth, tower truth and plank truth - labeled norms, honest arithmetic.</p>
+
+  <div class="boundary">
+    <h2>The boundary</h2>
+    <p>Scaffold Math keeps reach, tower and plank arithmetic only. It gives no verdicts about load
+    ratings or safe assembly - what holds weight is the manufacturer's rating, and the manual owns
+    guardrails, outriggers and ties. Never improvise a stack, and follow local height-safety rules.</p>
+  </div>
+
+  <div class="card">
+    <h2>The reach truth</h2>
+    <label for="r-claim">Claimed reach (feet)</label>
+    <input id="r-claim" type="number" step="any" value="12">
+    <label for="r-person">Person norm (feet)</label>
+    <input id="r-person" type="number" step="any" value="6">
+    <p class="out" id="r-out"></p>
+  </div>
+
+  <div class="card">
+    <h2>The tower truth</h2>
+    <label for="t-wall">Wall length (feet)</label>
+    <input id="t-wall" type="number" step="any" value="40">
+    <label for="t-cov">Tower coverage (feet each)</label>
+    <input id="t-cov" type="number" step="any" value="7">
+    <p class="out" id="t-out"></p>
+  </div>
+
+  <div class="card">
+    <h2>The plank truth</h2>
+    <label for="p-wall">Wall length (feet)</label>
+    <input id="p-wall" type="number" step="any" value="40">
+    <label for="p-plank">Plank length (feet)</label>
+    <input id="p-plank" type="number" step="any" value="10">
+    <label for="p-levels">Working levels</label>
+    <input id="p-levels" type="number" step="any" value="2">
+    <p class="out" id="p-out"></p>
+  </div>
+
+  <footer>
+    Every figure here is hypothetical arithmetic on labeled norms, not a statement about any real
+    equipment or structure. <a href="index.html">About Scaffold Math</a>
+  </footer>
+</main>
+<script src="engine.js"></script>
+<script>
+function num(id) { return parseFloat(document.getElementById(id).value); }
+function render(id, fn) {
+  const el = document.getElementById(id);
+  try {
+    el.textContent = fn();
+    el.classList.remove("err");
+  } catch (e) {
+    el.textContent = e.message;
+    el.classList.add("err");
+  }
+}
+function update() {
+  render("r-out", () => reachTruth(num("r-claim"), num("r-person")));
+  render("t-out", () => towerTruth(num("t-wall"), num("t-cov")));
+  render("p-out", () => plankTruth(num("p-wall"), num("p-plank"), num("p-levels")));
+}
+document.querySelectorAll("input").forEach(i => i.addEventListener("input", update));
+update();
+</script>
+</body>
+</html>
