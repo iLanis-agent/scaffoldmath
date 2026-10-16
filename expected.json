@@ -1,0 +1,211 @@
+[
+ {
+  "fn": "reachTruth",
+  "args": [
+   12,
+   6
+  ],
+  "out": "The box claims a 12-foot reach; at the 6-foot person norm the platform stands 6.0 feet up - a two-level stack honestly."
+ },
+ {
+  "fn": "reachTruth",
+  "args": [
+   7,
+   6
+  ],
+  "out": "The box claims a 7-foot reach; at the 6-foot person norm the platform stands 1.0 foot up - a one-level stack honestly."
+ },
+ {
+  "fn": "reachTruth",
+  "args": [
+   16,
+   6
+  ],
+  "out": "The box claims a 16-foot reach; at the 6-foot person norm the platform stands 10.0 feet up - a tall stack honestly."
+ },
+ {
+  "fn": "reachTruth",
+  "args": [
+   21,
+   6
+  ],
+  "out": "The box claims a 21-foot reach; at the 6-foot person norm the platform stands 15.0 feet up - a tall stack honestly."
+ },
+ {
+  "fn": "reachTruth",
+  "args": [
+   12,
+   5
+  ],
+  "out": "The box claims a 12-foot reach; at the 5-foot person norm the platform stands 7.0 feet up - a two-level stack honestly."
+ },
+ {
+  "fn": "reachTruth",
+  "args": [
+   0,
+   6
+  ],
+  "err": "the claimed reach must be above zero"
+ },
+ {
+  "fn": "reachTruth",
+  "args": [
+   12,
+   0
+  ],
+  "err": "the person norm must be above zero"
+ },
+ {
+  "fn": "reachTruth",
+  "args": [
+   6,
+   6
+  ],
+  "err": "the person norm must be less than the claimed reach"
+ },
+ {
+  "fn": "towerTruth",
+  "args": [
+   40,
+   7
+  ],
+  "out": "A 40-foot wall at 7 feet a tower is 6 towers - a working row of towers."
+ },
+ {
+  "fn": "towerTruth",
+  "args": [
+   7,
+   7
+  ],
+  "out": "A 7-foot wall at 7 feet a tower is 1 tower - one tower and done."
+ },
+ {
+  "fn": "towerTruth",
+  "args": [
+   14,
+   7
+  ],
+  "out": "A 14-foot wall at 7 feet a tower is 2 towers - a short row honestly."
+ },
+ {
+  "fn": "towerTruth",
+  "args": [
+   50,
+   7
+  ],
+  "out": "A 50-foot wall at 7 feet a tower is 8 towers - a working row of towers."
+ },
+ {
+  "fn": "towerTruth",
+  "args": [
+   100,
+   7
+  ],
+  "out": "A 100-foot wall at 7 feet a tower is 15 towers - a scaffold-yard honestly."
+ },
+ {
+  "fn": "towerTruth",
+  "args": [
+   30,
+   10
+  ],
+  "out": "A 30-foot wall at 10 feet a tower is 3 towers - a short row honestly."
+ },
+ {
+  "fn": "towerTruth",
+  "args": [
+   0,
+   7
+  ],
+  "err": "the wall length must be above zero"
+ },
+ {
+  "fn": "towerTruth",
+  "args": [
+   40,
+   0
+  ],
+  "err": "the tower coverage must be above zero"
+ },
+ {
+  "fn": "plankTruth",
+  "args": [
+   40,
+   10,
+   2
+  ],
+  "out": "A 40-foot wall takes 4 planks of 10 feet a level; 2 levels is 8 planks - a lumber pile honestly."
+ },
+ {
+  "fn": "plankTruth",
+  "args": [
+   10,
+   10,
+   1
+  ],
+  "out": "A 10-foot wall takes 1 plank of 10 feet a level; 1 level is 1 plank - one plank and done."
+ },
+ {
+  "fn": "plankTruth",
+  "args": [
+   20,
+   10,
+   1
+  ],
+  "out": "A 20-foot wall takes 2 planks of 10 feet a level; 1 level is 2 planks - a pair of planks honestly."
+ },
+ {
+  "fn": "plankTruth",
+  "args": [
+   30,
+   10,
+   2
+  ],
+  "out": "A 30-foot wall takes 3 planks of 10 feet a level; 2 levels is 6 planks - a stack of planks honestly."
+ },
+ {
+  "fn": "plankTruth",
+  "args": [
+   50,
+   10,
+   4
+  ],
+  "out": "A 50-foot wall takes 5 planks of 10 feet a level; 4 levels is 20 planks - a rental-yard honestly."
+ },
+ {
+  "fn": "plankTruth",
+  "args": [
+   24,
+   8,
+   3
+  ],
+  "out": "A 24-foot wall takes 3 planks of 8 feet a level; 3 levels is 9 planks - a lumber pile honestly."
+ },
+ {
+  "fn": "plankTruth",
+  "args": [
+   0,
+   10,
+   2
+  ],
+  "err": "the wall length must be above zero"
+ },
+ {
+  "fn": "plankTruth",
+  "args": [
+   40,
+   0,
+   2
+  ],
+  "err": "the plank length must be above zero"
+ },
+ {
+  "fn": "plankTruth",
+  "args": [
+   40,
+   10,
+   0
+  ],
+  "err": "the level count must be above zero"
+ }
+]
